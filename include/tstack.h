@@ -38,6 +38,5 @@ class TStack {
     return T();
   }
 };
-};
 
 #endif  // INCLUDE_TSTACK_H_
