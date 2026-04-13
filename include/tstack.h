@@ -4,25 +4,40 @@
 
 template<typename T, int SIZE>
 class TStack {
-private:
-    T data[SIZE];
-    int head;
-public:
-    TStack() : head(-1) {}
-    bool isEmpty() const { return head == -1; }
-    bool isFull()  const { return head == SIZE - 1; }
+ private:
+  T data[SIZE];
+  int head;
 
-    void push(const T& item) {
-        if (!isFull()) data[++head] = item;
-    }
+ public:
+  TStack() : head(-1) {}
 
-    void pop() {
-        if (!isEmpty()) head--;
-    }
+  bool isEmpty() const {
+    return head == -1;
+  }
 
-    T top() const {
-        return !isEmpty() ? data[head] : T();
+  bool isFull() const {
+    return head == SIZE - 1;
+  }
+
+  void push(const T& item) {
+    if (!isFull()) {
+      data[++head] = item;
     }
+  }
+
+  void pop() {
+    if (!isEmpty()) {
+      head--;
+    }
+  }
+
+  T top() const {
+    if (!isEmpty()) {
+      return data[head];
+    }
+    return T();
+  }
+};
 };
 
 #endif  // INCLUDE_TSTACK_H_
